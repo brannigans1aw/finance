@@ -23,6 +23,10 @@ This will be [techforelissa/finance-scraper](https://github.com/techforelissa/fi
 
 Then we need to put that data we have downloaded, somewhere easy to host. One option is a VCS file, but this isn't ideal because it ties our code to our data. It would be better to host it on some external place.
 
+#### Options
+
+[datahub.io](http://datahub.io/)
+
 ### Graph Data
 
 Finally we need some JS probably to parse that data and make some pretty interactive graphs out of it. This will be [techforelissa/finance-viewer](https://github.com/techforelissa/finance-viewer).
