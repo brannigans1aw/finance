@@ -17,7 +17,7 @@ want. As much as possible, tools should be created as stand alone repos.
 
 First we need to grab all the data and plop it into a `.csv` file. It should be one contribution per row, specifying
 everything we need about it, including date, amount, donator, and recipient. 
-This will be techforelissa/finance-scraper.
+This will be [techforelissa/finance-scraper](https://github.com/techforelissa/finance-scraper).
 
 ### Host Data
 
@@ -25,4 +25,4 @@ Then we need to put that data we have downloaded, somewhere easy to host. One op
 
 ### Graph Data
 
-Finally we need some JS probably to parse that data and make some pretty interactive graphs out of it. This will be techforelissa/finance-viewer.
+Finally we need some JS probably to parse that data and make some pretty interactive graphs out of it. This will be [techforelissa/finance-viewer](https://github.com/techforelissa/finance-viewer).
