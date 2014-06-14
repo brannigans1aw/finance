@@ -6,4 +6,4 @@ Grab all the campaign contributions from DC 2014 Council At Large campaigns and 
 
 ## Design
 Docker FTW. 
-Model after [Flynn](https://github.com/flynn) apps (do one thing and be clean about it).
+Modeled after [Flynn](https://github.com/flynn) apps (do one thing and be clean about it).
