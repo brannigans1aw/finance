@@ -21,21 +21,23 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # finance-scraper
-
 ## Goal
 Grab all the campaign contributions from DC 2014 Council At Large campaigns
 and plop it into a CSV.
+
 
 ## Design
 Docker FTW.
 Modeled after [Flynn](https://github.com/flynn) apps (do one thing and be
 clean about it).
 
+
 ## Setup
 This app requires [Docker](http://www.docker.com/).
 
 I have found the best way to get it going on a Mac is
 [dvm](https://github.com/fnichol/dvm#-tldr-for-mac-users)
+
 
 ## Instructions
 The Docker image is created after after every git push to the master branch
@@ -57,6 +59,7 @@ If you don't want me shoving Docker down your throat, then take a look
 at `./Dockerfile`, I am sure you can figure out how to run it. It isn't too
 complicated.
 
+
 ## Developing
 You shouldn't have to do this since the docker image is pushed to
 https://hub.docker.com/ whenever it is uploaded to Github. But if you want
@@ -72,6 +75,7 @@ To update the TOC at the top of the `README.md`:
 $ npm install -g doctoc
 $ doctoc README.md
 ```
+
 
 ## How did I do it?
 
