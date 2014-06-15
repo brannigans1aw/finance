@@ -1,26 +1,33 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
-
-- [finance-scraper](#finance-scraper)
-  - [Goal](#goal)
-  - [Design](#design)
-  - [Setup](#setup)
-  - [Instructions](#instructions)
-  - [Developing](#developing)
-  - [How did I do it?](#how-did-i-do-it)
-    - [Manual Process](#manual-process)
-    - [Automation](#automation)
-      - [Selenium](#selenium)
-      - [Requests](#requests)
-        - [Chrome Dev Tools](#chrome-dev-tools)
-        - [Chrome Net Internals](#chrome-net-internals)
-        - [Charles](#charles)
-      - [Cookie](#cookie)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 # finance-scraper
+
+Part of [techforelissa/finance](https://github.com/techforelissa/finance)
+
+## Instructions
+```
+$ docker run techforelissa/finance-scraper > finance.csv
+```
+
+The Docker image is created after after every git push to the master branch
+on GitHub. So you don't actually need to clone this repo in order to run the
+code, docker will pull it off of the hub.
+
+If you want to choose a custom date range, or change the report type to
+expenditures, you can set env. variables (defaults are given).
+```
+
+$ docker run  \
+    -e FROM_DATE=01/01/2014 \
+    -e TO_DATE=01/01/9999 \ # you can use future dates and it won't break
+    -e REPORT_TYPE=con \ # either con for contributions or exp for expenditures
+    techforelissa/finance-scraper
+    > finance.csv
+```
+
+If you don't want me shoving Docker down your throat, then take a look
+at `./Dockerfile`, I am sure you can figure out how to run it. It isn't too
+complicated.
+
+
 ## Goal
 Grab all the campaign contributions from DC 2014 Council At Large campaigns
 and plop it into a CSV.
@@ -39,27 +46,6 @@ I have found the best way to get it going on a Mac is
 [dvm](https://github.com/fnichol/dvm#-tldr-for-mac-users)
 
 
-## Instructions
-The Docker image is created after after every git push to the master branch
-on GitHub. So you don't actually need to clone this repo in order to run the
-code, docker will pull it off of the hub.
-
-All environment options are options, the defaults are given.
-
-```
-$ docker run  \
-    -e FROM_DATE=01/01/2014 \
-    -e TO_DATE=01/01/9999 \ # you can use future dates and it won't break
-    -e REPORT_TYPE=con \ # either con for contributions or exp for expenditures
-    techforelissa/finance-scraper
-    > finance.csv
-```
-
-If you don't want me shoving Docker down your throat, then take a look
-at `./Dockerfile`, I am sure you can figure out how to run it. It isn't too
-complicated.
-
-
 ## Developing
 You shouldn't have to do this since the docker image is pushed to
 https://hub.docker.com/ whenever it is uploaded to Github. But if you want
@@ -68,14 +54,6 @@ to build it yourself for testing:
 ```shell
 $ docker build -t techforelissa/finance-scraper .
 ```
-
-To update the TOC at the top of the `README.md`:
-
-```shell
-$ npm install -g doctoc
-$ doctoc README.md
-```
-
 
 ## How did I do it?
 ### Manual Process
