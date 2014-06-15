@@ -78,7 +78,6 @@ $ doctoc README.md
 
 
 ## How did I do it?
-
 ### Manual Process
 1. Go to
    [www.ocf.dc.gov/serv/download.asp](http://www.ocf.dc.gov/serv/download.asp)
@@ -159,5 +158,10 @@ So then I tried doing step 3, sending a `POST` to `/serv/download.asp` and then
 the identical post to `/serve/download_conexp.asp`, thinking maybe the server
 checked to see if I submitted the form before letting me download. It worked!
 However the next day when I tried again I go the
-`Your Session is expired. Please try again`. Very weird.
+`Your Session is expired. Please try again`. Very weird. I tried getting a
+cookie from the my chrome session and using that and it forked. So something
+about how I get my session on chrome is different from how I get my session
+on Requests. I needed to figure out what the difference was.
+
+Then I tried it again and it worked. So who knows. Maybe their site is weird.
 
