@@ -38,8 +38,11 @@ I have found the best way to get it going on a Mac is
 [dvm](https://github.com/fnichol/dvm#-tldr-for-mac-users)
 
 ## Instructions
-All environment options are options, the defaults are given.
+The Docker image is created after after every git push to the master branch
+on GitHub. So you don't actually need to clone this repo in order to run the
+code, docker will pull it off of the hub.
 
+All environment options are options, the defaults are given.
 
 ```
 $ docker run  \
