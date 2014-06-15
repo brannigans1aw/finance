@@ -17,11 +17,13 @@ options = {
     "optFormat": "CSV",
 }
 
+
 get_some_cookies_from_url = "http://www.ocf.dc.gov/serv/download.asp"
+
 s.post(get_some_cookies_from_url, options)
 
 download_url = 'http://www.ocf.dc.gov/serv/download_conexp.asp'
-r = requests.post(download_url, options)
+r = s.post(download_url, options)
 
 # raise error if not 200
 r.raise_for_status()
