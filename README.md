@@ -29,7 +29,7 @@ complicated.
 
 
 ## Goal
-Grab all the campaign contributions from DC 2014 Council At Large campaigns
+Grab all the campaign contributions/expenditures DC campaigns
 and plop it into a CSV.
 
 
