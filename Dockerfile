@@ -8,8 +8,8 @@ WORKDIR /src
 RUN ["pip", "install", "-r", "requirements.txt"]
 ADD . /src
 
-ENV FROM_DATE 01/01/9999
-ENV TO_DATE 06/01/2014
+ENV FROM_DATE 01/01/2014
+ENV TO_DATE 06/01/9999
 ENV REPORT_TYPE con
 
 CMD ["python", "scrape.py"]
