@@ -9,6 +9,12 @@ $ dc-campaign-finance-data --help
 $ dc-campaign-finance-data > contributions.csv
 ```
 
+## Release instructions
+1. Bump version in `./setup.py`
+2. Commit and create tag for version prefixed with "v"
+3. `pip install -e .` to make sure it works
+4. `python setup.py sdist bdist_wheel upload`
+
 ## How did I do it?
 ### Manual Process
 1. Go to
