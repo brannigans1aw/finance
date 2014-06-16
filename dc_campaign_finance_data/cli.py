@@ -12,6 +12,7 @@ def cli(**kwargs):
     pass
 
 @cli.command(name='records', short_help='List of records (CSV)')
+
 @click.option('--from-date', default='01/01/' + str(datetime.datetime.now().year),
 @click.option('--to-date', default='01/01/9999',
               help='Last date of records. Future dates are allowed.')
@@ -32,6 +33,7 @@ def records_csv_cli(**kwargs):
 
 @cli.command(name='years', short_help='Possible years (JSON)')
 def years_cli():
+
     '''
     Years in which there are records kept of campaign finances. (JSON)
     '''
@@ -42,6 +44,7 @@ def years_cli():
 
 @cli.command(name='offices', short_help='Possible offices (JSON)')
 def offices_cli():
+
     '''
     Offices for DC which are tracked. (JSON)
     '''
@@ -49,6 +52,7 @@ def offices_cli():
         json.dumps(scraper.offices()),
         nl=False
     )
+
 
 
 if __name__ == '__main__':

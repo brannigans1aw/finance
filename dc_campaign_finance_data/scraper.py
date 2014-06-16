@@ -28,6 +28,7 @@ def records_csv(from_date, to_date, report_type):
 
     return r.text
 
+
 def available_years():
     js_with_years_in_it = 'http://geospatial.dcgis.dc.gov/ocf/js/process.js'
     r = requests.get(js_with_years_in_it)
@@ -42,6 +43,7 @@ def available_years():
 
     # then we just want to return a list of the years
     return [int(year['year']) for year in years_json]
+
 
 def offices():
     html_with_offices_in_it = 'http://geospatial.dcgis.dc.gov/ocf/'
