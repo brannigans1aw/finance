@@ -15,7 +15,8 @@ setup(
     install_requires=[
         'requests',
         'click',
-        'beautifulsoup4'
+        'beautifulsoup4',
+        'requests-cache'
     ],
 
     # metadata for upload to PyPI
