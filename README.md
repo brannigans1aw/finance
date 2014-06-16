@@ -6,12 +6,7 @@ Part of [techforelissa/finance](https://github.com/techforelissa/finance)
 ```bash
 $ pip install dc-campaign-finance-data
 Downloading/unpacking dc-campaign-finance-data
-  Downloading dc_campaign_finance_data-0.1.0-cp27-none-macosx_10_9_x86_64.whl
-Requirement already satisfied (use --upgrade to upgrade): requests in /usr/local/lib/python2.7/site-packages (from dc-campaign-finance-data)
-Requirement already satisfied (use --upgrade to upgrade): click in /usr/local/lib/python2.7/site-packages (from dc-campaign-finance-data)
-Installing collected packages: dc-campaign-finance-data
-Successfully installed dc-campaign-finance-data
-Cleaning up...
+...
 $ dc-campaign-finance-data
 Usage: dc-campaign-finance-data [OPTIONS] COMMAND [ARGS]...
 
