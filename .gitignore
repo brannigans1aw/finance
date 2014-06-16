@@ -1,1 +1,4 @@
 dc_campaign_finance_data.egg-info/
+dist/
+setuptools-*.egg
+setuptools-*.zip
