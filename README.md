@@ -12,8 +12,26 @@ Requirement already satisfied (use --upgrade to upgrade): click in /usr/local/li
 Installing collected packages: dc-campaign-finance-data
 Successfully installed dc-campaign-finance-data
 Cleaning up...
-$ dc-campaign-finance-data --help
-Usage: dc-campaign-finance-data [OPTIONS]
+$ dc-campaign-finance-data
+Usage: dc-campaign-finance-data [OPTIONS] COMMAND [ARGS]...
+
+Options:
+  --help  Show this message and exit.
+
+Commands:
+  offices  Possible offices (JSON)
+  records  List of records (CSV)
+  years    Possible years (JSON)
+$ dc-campaign-finance-data offices
+["Mayor", "Council Chairman", "Council At-Large", "Council Ward 1", ...
+$ dc-campaign-finance-data years
+[2010, 2011, 2012, 2013, 2014]⏎
+$ dc-campaign-finance-data records --help
+Usage: dc-campaign-finance-data records [OPTIONS]
+
+  A list all transactions for all campaigns, between FROM-DATE and TO-DATE.
+  Either the expenses of the campaign or the contributions of the campaign,
+  based on REPORT-TYPE.
 
 Options:
   --from-date TEXT         First date of records.
@@ -21,7 +39,10 @@ Options:
   --report-type [exp|con]  The type of report. (exp -> expenses, con ->
                            contributions)
   --help                   Show this message and exit.
-$ dc-campaign-finance-data > contributions.csv
+$ dc-campaign-finance-data records
+"Committee Name","Candidate Name","Contributor","Address","city","state","Zip","Contributor Type","Contribution Type","Employer Name","Employer Address","Amount","Date of Receipt"
+"AJ Cooper at large","A.J  Cooper ","Cooper, A.J ","1212 Delafield Pl., NW","Washington","DC","20011","Candidate","Check","","","$2,000.00","1/24/2014"
+...
 ```
 
 ## Release instructions
