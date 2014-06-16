@@ -29,10 +29,11 @@ Usage: dc-campaign-finance-data records [OPTIONS]
   based on REPORT-TYPE.
 
 Options:
-  --from-date TEXT         First date of records.
+  --from-date TEXT         First date of records.  [default: 01/01/2014]
   --to-date TEXT           Last date of records. Future dates are allowed.
+                           [default: 01/01/9999]
   --report-type [exp|con]  The type of report. (exp -> expenses, con ->
-                           contributions)
+                           contributions)  [default: con]
   --help                   Show this message and exit.
 $ dc-campaign-finance-data records
 "Committee Name","Candidate Name","Contributor","Address","city","state","Zip","Contributor Type","Contribution Type","Employer Name","Employer Address","Amount","Date of Receipt"
