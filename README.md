@@ -5,7 +5,22 @@ Part of [techforelissa/finance](https://github.com/techforelissa/finance)
 ## Instructions
 ```bash
 $ pip install dc-campaign-finance-data
+Downloading/unpacking dc-campaign-finance-data
+  Downloading dc_campaign_finance_data-0.1.0-cp27-none-macosx_10_9_x86_64.whl
+Requirement already satisfied (use --upgrade to upgrade): requests in /usr/local/lib/python2.7/site-packages (from dc-campaign-finance-data)
+Requirement already satisfied (use --upgrade to upgrade): click in /usr/local/lib/python2.7/site-packages (from dc-campaign-finance-data)
+Installing collected packages: dc-campaign-finance-data
+Successfully installed dc-campaign-finance-data
+Cleaning up...
 $ dc-campaign-finance-data --help
+Usage: dc-campaign-finance-data [OPTIONS]
+
+Options:
+  --from-date TEXT         First date of records.
+  --to-date TEXT           Last date of records. Future dates are allowed.
+  --report-type [exp|con]  The type of report. (exp -> expenses, con ->
+                           contributions)
+  --help                   Show this message and exit.
 $ dc-campaign-finance-data > contributions.csv
 ```
 
