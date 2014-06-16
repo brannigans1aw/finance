@@ -13,14 +13,17 @@ def cli(**kwargs):
 
 
 @cli.command(short_help='List of records (CSV)')
-@click.option('--from-date', default='01/01/' + str(datetime.datetime.now().year),
-              help='First date of records.', show_default=True)
-@click.option('--to-date', default='01/01/9999',
+@click.option('--from-date',
+              default='01/01/' + str(datetime.datetime.now().year),
+              help='First date of records.',
+              show_default=True)
+@click.option('--to-date',
+              default='01/01/9999',
               help='Last date of records. Future dates are allowed.',
               show_default=True)
 @click.option('--report-type',
               default='con',
-              help='The type of report. (exp -> expenses, con -> contributions)',
+              help='exp -> expenses, con -> contributions',
               type=click.Choice(['exp', 'con']),
               show_default=True)
 def records(**kwargs):
@@ -57,6 +60,7 @@ def offices():
     )
 
 year_range = [scraper.available_years()[0], scraper.available_years()[-1]]
+
 
 @cli.command(short_help='Running committees (JSON)')
 @click.option('--office',
