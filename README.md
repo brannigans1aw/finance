@@ -18,7 +18,7 @@ Commands:
   records  List of records (CSV)
   years    Possible years (JSON)
 $ dc-campaign-finance-data offices
-["Mayor", "Council Chairman", "Council At-Large", "Council Ward 1", ...
+["Mayor", "Council Chairman", "Council At-Large", "Council Ward 1", ... ]
 $ dc-campaign-finance-data years
 [2010, 2011, 2012, 2013, 2014]⏎
 $ dc-campaign-finance-data records --help
