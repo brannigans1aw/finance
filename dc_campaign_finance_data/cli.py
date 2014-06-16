@@ -11,8 +11,8 @@ from . import scraper
 def cli(**kwargs):
     pass
 
-@cli.command(name='records', short_help='List of records (CSV)')
 
+@cli.command(short_help='List of records (CSV)')
 @click.option('--from-date', default='01/01/' + str(datetime.datetime.now().year),
 @click.option('--to-date', default='01/01/9999',
               help='Last date of records. Future dates are allowed.')
@@ -20,7 +20,7 @@ def cli(**kwargs):
               default='con',
               help='The type of report. (exp -> expenses, con -> contributions)',
               type=click.Choice(['exp', 'con']))
-def records_csv_cli(**kwargs):
+def records(**kwargs):
     '''
     A list all transactions for all campaigns, between FROM-DATE and TO-DATE.
     Either the expenses of the campaign or the contributions of the
@@ -31,9 +31,9 @@ def records_csv_cli(**kwargs):
         nl=False
     )
 
-@cli.command(name='years', short_help='Possible years (JSON)')
-def years_cli():
 
+@cli.command(short_help='Possible years (JSON)')
+def years():
     '''
     Years in which there are records kept of campaign finances. (JSON)
     '''
@@ -42,9 +42,9 @@ def years_cli():
         nl=False
     )
 
-@cli.command(name='offices', short_help='Possible offices (JSON)')
-def offices_cli():
 
+@cli.command(short_help='Possible offices (JSON)')
+def offices():
     '''
     Offices for DC which are tracked. (JSON)
     '''
