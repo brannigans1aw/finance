@@ -56,7 +56,25 @@ def offices():
         nl=False
     )
 
+year_range = [scraper.available_years()[0], scraper.available_years()[-1]]
 
+@cli.command(short_help='Running committees (JSON)')
+@click.option('--office',
+              default='Council At-Large',
+              show_default=True,
+              type=click.Choice(scraper.offices()))
+@click.option('--year',
+              default=datetime.datetime.now().year,
+              show_default=True,
+              type=click.IntRange(*year_range))
+def committees(**kwargs):
+    '''
+    All committees running for OFFICE in YEAR.
+    '''
+    click.echo(
+        json.dumps(scraper.committees(**kwargs)),
+        nl=False
+    )
 
 if __name__ == '__main__':
     cli()

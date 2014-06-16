@@ -14,13 +14,26 @@ Options:
   --help  Show this message and exit.
 
 Commands:
-  offices  Possible offices (JSON)
-  records  List of records (CSV)
-  years    Possible years (JSON)
+  committees  Running committees (JSON)
+  offices     Possible offices (JSON)
+  records     List of records (CSV)
+  years       Possible years (JSON)
 $ dc-campaign-finance-data offices
 ["Mayor", "Council Chairman", "Council At-Large", "Council Ward 1", ... ]
 $ dc-campaign-finance-data years
 [2010, 2011, 2012, 2013, 2014]⏎
+$ dc-campaign-finance-data committees --help
+Usage: dc-campaign-finance-data committees [OPTIONS]
+
+  All committees running for OFFICE in YEAR.
+
+Options:
+  --office [Mayor|Council Chairman...
+                                  [default: Council At-Large]
+  --year INTEGER RANGE            [default: 2014]
+  --help                          Show this message and exit.
+$ dc-campaign-finance-data committees
+["Bonds for Council 2014", "Brian Hart for DC", ...]⏎
 $ dc-campaign-finance-data records --help
 Usage: dc-campaign-finance-data records [OPTIONS]
 

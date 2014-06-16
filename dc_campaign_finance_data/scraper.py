@@ -55,3 +55,21 @@ def offices():
     office_option_elements.sort(key=lambda e: int(e['value']))
 
     return [e.text for e in office_option_elements]
+
+
+def committees(office, year):
+    url = 'http://geospatial.dcgis.dc.gov/ocf/getData.aspx'
+    payload = {
+        'of': office,
+        'ofv': 3,
+        'yr': year,
+    }
+    r = requests.get(url, params=payload)
+    soup = BeautifulSoup(r.text)
+
+    try:
+        return [tr.td.text for tr in soup.table.find_all('tr')][:-1]
+    except AttributeError:
+        return []
+
+
