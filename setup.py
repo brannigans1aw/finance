@@ -6,15 +6,16 @@ from setuptools import setup, find_packages
 setup(
     name="dc-campaign-finance-data",
     version="0.1.1",
-    py_modules = ['dc_campaign_finance_data'],
+    packages=find_packages(),
     entry_points={
         'console_scripts': [
-            'dc-campaign-finance-data=dc_campaign_finance_data:cli'
+            'dc-campaign-finance-data=dc_campaign_finance_data.cli:cli'
         ]
     },
     install_requires=[
         'requests',
-        'click'
+        'click',
+        'beautifulsoup4'
     ],
 
     # metadata for upload to PyPI
