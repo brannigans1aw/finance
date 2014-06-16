@@ -6,7 +6,7 @@ from setuptools import setup, find_packages
 setup(
     name="dc-campaign-finance-data",
     version="0.1.0",
-    packages=find_packages(),
+    py_modules = ['dc_campaign_finance_data'],
     entry_points={
         'console_scripts': [
             'dc-campaign-finance-data=dc_campaign_finance_data:cli'
@@ -18,6 +18,7 @@ setup(
     ],
 
     # metadata for upload to PyPI
+    long_description=open('README.md').read(),
     author="Saul Shanabrook",
     author_email="s.shanabrook@gmail.com",
     description="Provides data from http://www.ocf.dc.gov/serv/download.asp in a nicer way",
