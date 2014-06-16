@@ -3,56 +3,10 @@
 Part of [techforelissa/finance](https://github.com/techforelissa/finance)
 
 ## Instructions
-```
-$ docker run techforelissa/finance-scraper > finance.csv
-```
-
-The Docker image is created after after every git push to the master branch
-on GitHub. So you don't actually need to clone this repo in order to run the
-code, docker will pull it off of the hub.
-
-If you want to choose a custom date range, or change the report type to
-expenditures, you can set env. variables (defaults are given).
-```
-
-$ docker run  \
-    -e FROM_DATE=01/01/2014 \
-    -e TO_DATE=01/01/9999 \ # you can use future dates and it won't break
-    -e REPORT_TYPE=con \ # either con for contributions or exp for expenditures
-    techforelissa/finance-scraper
-    > finance.csv
-```
-
-If you don't want me shoving Docker down your throat, then take a look
-at `./Dockerfile`, I am sure you can figure out how to run it. It isn't too
-complicated.
-
-
-## Goal
-Grab all the campaign contributions/expenditures DC campaigns
-and plop it into a CSV.
-
-
-## Design
-Docker FTW.
-Modeled after [Flynn](https://github.com/flynn) apps (do one thing and be
-clean about it).
-
-
-## Setup
-This app requires [Docker](http://www.docker.com/).
-
-I have found the best way to get it going on a Mac is
-[dvm](https://github.com/fnichol/dvm#-tldr-for-mac-users)
-
-
-## Developing
-You shouldn't have to do this since the docker image is pushed to
-https://hub.docker.com/ whenever it is uploaded to Github. But if you want
-to build it yourself for testing:
-
-```shell
-$ docker build -t techforelissa/finance-scraper .
+```bash
+$ pip install dc-campaign-finance-data
+$ dc-campaign-finance-data --help
+$ dc-campaign-finance-data > contributions.csv
 ```
 
 ## How did I do it?
