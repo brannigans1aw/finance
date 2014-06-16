@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 import click
 import json
+import datetime
 
 from . import scraper
 
@@ -11,7 +12,7 @@ def cli(**kwargs):
     pass
 
 @cli.command(name='records', short_help='List of records (CSV)')
-@click.option('--from-date', default='01/01/2014', help='First date of records.')
+@click.option('--from-date', default='01/01/' + str(datetime.datetime.now().year),
 @click.option('--to-date', default='01/01/9999',
               help='Last date of records. Future dates are allowed.')
 @click.option('--report-type',
