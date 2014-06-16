@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="dc-campaign-finance-data",
-    version="0.1.0",
+    version="0.1.1",
     py_modules = ['dc_campaign_finance_data'],
     entry_points={
         'console_scripts': [
