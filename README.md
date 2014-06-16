@@ -49,7 +49,8 @@ $ dc-campaign-finance-data records
 1. `pip install -e .` to make sure it works
 2. Bump version in `./setup.py`
 3. Commit and create tag for version prefixed with "v"
-4. `python setup.py sdist bdist_wheel upload`
+4. `pip install wheel`
+5. `python setup.py sdist bdist_wheel upload`
 
 ## How did I do it?
 ### Manual Process
