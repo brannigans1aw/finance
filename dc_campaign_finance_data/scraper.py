@@ -18,7 +18,6 @@ def records_csv(from_date, to_date, report_type):
     get_some_cookies_from_url = "http://www.ocf.dc.gov/serv/download.asp"
 
     s = requests.Session()
-    print s.post(get_some_cookies_from_url, options).text
     s.post(get_some_cookies_from_url, options).raise_for_status()
 
     download_url = 'http://www.ocf.dc.gov/serv/download_conexp.asp'
