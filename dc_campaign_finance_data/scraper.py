@@ -15,16 +15,18 @@ def records_csv(from_date, to_date, report_type):
         "filing_year": "",
         "optFormat": "CSV",
     }
-
     get_some_cookies_from_url = "http://www.ocf.dc.gov/serv/download.asp"
 
     s = requests.Session()
-
+    print s.post(get_some_cookies_from_url, options).text
     s.post(get_some_cookies_from_url, options).raise_for_status()
 
     download_url = 'http://www.ocf.dc.gov/serv/download_conexp.asp'
     r = s.post(download_url, options)
     r.raise_for_status()
+
+    if 'Your Session is expired. Please try again' in r.text:
+        raise(Exception, 'Cant get records data. Cookie isnt working. idk')
 
     return r.text
 
