@@ -58,6 +58,12 @@ def offices():
     return [e.text for e in office_option_elements]
 
 
+def races(year):
+    for office in offices():
+        if committees(office, year):
+            yield office
+
+
 def office_version(office):
     html_with_offices_in_it = 'http://geospatial.dcgis.dc.gov/ocf/'
     r = requests.get(html_with_offices_in_it)

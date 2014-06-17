@@ -80,5 +80,20 @@ def committees(**kwargs):
         nl=False
     )
 
+
+@cli.command(short_help='Active races in a year (JSON)')
+@click.option('--year',
+              default=datetime.datetime.now().year,
+              show_default=True,
+              type=click.IntRange(*year_range))
+def races(**kwargs):
+    '''
+    All offices that are run for in YEAR
+    '''
+    click.echo(
+        json.dumps(list(scraper.races(**kwargs))),
+        nl=False
+    )
+
 if __name__ == '__main__':
     cli()
