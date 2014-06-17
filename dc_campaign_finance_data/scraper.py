@@ -59,11 +59,19 @@ def offices():
     return [e.text for e in office_option_elements]
 
 
+def office_version(office):
+    html_with_offices_in_it = 'http://geospatial.dcgis.dc.gov/ocf/'
+    r = requests.get(html_with_offices_in_it)
+    soup = BeautifulSoup(r.text)
+
+    return soup.find('option', text=office)['value']
+
+
 def committees(office, year):
     url = 'http://geospatial.dcgis.dc.gov/ocf/getData.aspx'
     payload = {
         'of': office,
-        'ofv': 3,
+        'ofv': office_version(office),
         'yr': year,
     }
     r = requests.get(url, params=payload)
