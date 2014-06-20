@@ -13,8 +13,8 @@ want. As much as possible, tools should be created as stand alone repos.
 
 ## Parts
 
-1. *[finance-scraper](https://github.com/techforelissa/finance-scraper)*: Provide Python and CLI API to raw data from
+1. **[finance-scraper](https://github.com/techforelissa/finance-scraper)**: Provide Python and CLI API to raw data from
    from [DC Office of Campaign finance](http://ocf.dc.gov/index.shtm)
-2. *[finance-scraper-pusher](https://github.com/techforelissa/finance-scraper)*: Provide HTTP API for wrapped data.
-3. *[finance-display](https://github.com/techforelissa/finance-scraper)*: Front end one page site that visualizes
+2. **[finance-scraper-pusher](https://github.com/techforelissa/finance-scraper)**: Provide HTTP API for wrapped data.
+3. **[finance-display](https://github.com/techforelissa/finance-scraper)**: Front end one page site that visualizes
    the data.
