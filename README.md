@@ -13,26 +13,8 @@ want. As much as possible, tools should be created as stand alone repos.
 
 ## Parts
 
-### Get Data
-
-First we need to grab all the data and plop it into a `.csv` file. It should be one contribution per row, specifying
-everything we need about it, including date, amount, donator, and recipient. 
-This is at [techforelissa/finance-scraper](https://github.com/techforelissa/finance-scraper).
-
-### Host Data
-
-Then we need to put that data we have downloaded, somewhere easy to host. One option is a VCS file, but this isn't ideal because it ties our code to our data. It would be better to host it on some external place.
-
-This code is at [techforelissa/finance-scraper-pusher](https://github.com/techforelissa/finance-scraper-pusher)
-
-#### Options
-
-[datahub.io](http://datahub.io/)
-[socrata](http://www.socrata.com/)
-[OpenData DC](http://www.opendatadc.org/)
-
-We have decided to use OpenData DC.
-
-### Graph Data
-
-Finally we need some JS probably to parse that data and make some pretty interactive graphs out of it. This will be [techforelissa/finance-viewer](https://github.com/techforelissa/finance-viewer).
+1. *[finance-scraper](https://github.com/techforelissa/finance-scraper)*: Provide Python and CLI API to raw data from
+   from [DC Office of Campaign finance](http://ocf.dc.gov/index.shtm)
+2. *[finance-scraper-pusher](https://github.com/techforelissa/finance-scraper)*: Provide HTTP API for wrapped data.
+3. *[finance-display](https://github.com/techforelissa/finance-scraper)*: Front end one page site that visualizes
+   the data.
