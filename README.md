@@ -2,14 +2,11 @@
 
 ## Goals
 
-We would like to make pretty graphs of contributions and expenditures for all candidates running for at large DC council in
-2014. It would be awesome to have nice graphs of each candidate, showing who donated to their campaigns, whether they were corporations or indivuals, and how that has changed over time.
+We want to apply the techniques and goals of the Sunlight Foundation and Follow the Money to DC politics. We will track contributions and expenditures for all candidates running for DC public office.  We plan to start small and grow organically as through projects that interest collaborators. 
 
 ## Design
 
-We seperate apps as much as possible, designing small tools that do one thing very well. This means that each part should
-should articulate what specific action it does and no more. Then we can chain these tools together to get the results we
-want. As much as possible, tools should be created as stand alone repos.
+We will try to seperate apps as much as possible, designing small tools that do one thing very well. This means that each part should should articulate what specific action it does and no more. Then we can chain these tools together to get the results we want. As much as possible, tools should be created as stand alone repos. 
 
 ## Parts
 
