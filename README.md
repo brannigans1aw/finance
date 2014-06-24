@@ -11,7 +11,7 @@ We will try to seperate apps as much as possible, designing small tools that do 
 ## Parts
 
 1. **[finance-scraper](https://github.com/techforelissa/finance-scraper)**: Provide Python and CLI API to raw data from
-   from [DC Office of Campaign finance](http://ocf.dc.gov/index.shtm)
+   from [DC Office of Campaign Finance](http://ocf.dc.gov/index.shtm)
 2. **[finance-munger](https://github.com/techforelissa/finance-munger)**: scripts for munging data into shape.
 3. **[finance-data](https://github.com/techforelissa/finance-data)**: where we put the data we download and graph.
 4. **[finance-display](https://github.com/techforelissa/finance-scraper)**: The pieces that generate graphs and content for the front end.
