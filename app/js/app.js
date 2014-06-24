@@ -7,5 +7,6 @@ angular.module('myApp', [
   'myApp.services',
   'myApp.directives',
   'myApp.controllers',
+  'ngResource',
   'nvd3ChartDirectives'
 ])

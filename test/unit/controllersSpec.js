@@ -19,20 +19,20 @@ describe('controllers', function () {
 
     it('should set "year" with "setYear"', function () {
       scope.setYear(2014);
-      expect(scope.year).toBe(2014);
+      expect(scope.data.year).toBe(2014);
       scope.setYear(2013);
-      expect(scope.year).toBe(2013);
+      expect(scope.data.year).toBe(2013);
     });
 
     it('should set "office" with "setOffice"', function () {
       scope.setOffice("mayor");
-      expect(scope.office).toBe('mayor');
+      expect(scope.data.office).toBe('mayor');
       scope.setOffice('at large');
-      expect(scope.office).toBe('at large');
+      expect(scope.data.office).toBe('at large');
     });
 
     it('should show active offices per year with "officeContended"', function () {
-      scope.years = {
+      scope.data.years = {
         2014: ['mayor'],
         2013: ['office'],
       }

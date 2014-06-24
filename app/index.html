@@ -31,14 +31,13 @@
 
   <div class="container">
     <div ng-controller="SelectController">
-
+      {{campaigns}}
       <div class="row">
         <strong>Years:</strong>
         <div class="btn-group">
-          <button ng-repeat="year in data.years" type="button" class="btn btn-default" ng-click="setYear(year)" ng-class="{active: year === data..year}">{{year}}</button>
+          <button ng-repeat="year in data.years()" type="button" class="btn btn-default" ng-click="setYear(year)" ng-class="{active: year === data.year}">{{year}}</button>
         </div>
       </div>
-
       <div class="row">
         <strong>City Wide:</strong>
         <div class="btn-group">
@@ -56,19 +55,19 @@
 
     </div>
 
-    <div ng-controller="GraphsController" ng-init="something=[['data1', '30'], ['data2', '120']]">
-      <div ng-repeat="candidate in data.candidates|orderBy : totalContr : true" class="row">
-        {{candidate}} {{totalContr(candidate) | currency}}
-        <nvd3-pie-chart data="pieChartData(candidate)" tooltips="true" showLabels="true" donut="true" donutLabelsOutside="true" height=400 width=400>
-        </nvd3-pie-chart>
+    <div ng-controller="GraphsController">
+
+      <div ng-repeat="candidate in data.candidates() | orderBy : totalContr : true" class="row">
+        {{candidate}} {{totalContr(candidate ) | currency}}
+        <nvd3-pie-chart data="_.pairs(data.pieChart[candidate])" tooltips="true" showLabels="true" donut="true" donutLabelsOutside="true" height=400 width=400></nvd3-pie-chart>
       </div>
     </div>
+
   </div>
   </div>
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js "></script>
-  -->
+
   <script src="bower_components/angular/angular.js "></script>
+  <script src="bower_components/angular-resource/angular-resource.js "></script>
   <script src="bower_components/underscore/underscore.js "></script>
   <script src="bower_components/jquery/dist/jquery.js "></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.js "></script>
