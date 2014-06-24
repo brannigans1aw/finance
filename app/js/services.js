@@ -35,7 +35,7 @@ myAppServices.factory('Data', ['$resource', '$http',
     }
 
     data.years = function () {
-      return Object.keys(this.campaigns);
+      return Object.keys(this.campaigns).reverse();
     }
 
     data.offices = function () {
