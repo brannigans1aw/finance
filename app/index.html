@@ -55,7 +55,7 @@
     </div>
 
     <div ng-controller="GraphsController">
-
+      {{ data.barChart}}
       <div ng-repeat="candidate in data.candidates() | orderBy : totalContr : true" class="row">
         {{candidate}} {{totalContr(candidate ) | currency}}
         <nvd3-pie-chart data="_.pairs(data.pieChart[candidate])" tooltips="true" showLabels="true" donut="true" donutLabelsOutside="true" height=400 width=400></nvd3-pie-chart>

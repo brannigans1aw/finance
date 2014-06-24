@@ -37,6 +37,7 @@ angular.module('myApp.controllers', [])
           return memo + num;
         }, 0);
       }
+
       $scope.totalContr = function (candidate) {
         return sum(_.values($scope.data.pieChart[candidate]));
       }
