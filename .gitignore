@@ -4,3 +4,5 @@ setuptools-*.egg
 setuptools-*.zip
 build/
 munger/cache.sqlite
+.DS_Store
+.gitignore
