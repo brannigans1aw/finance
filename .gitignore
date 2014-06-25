@@ -3,3 +3,4 @@ dist/
 setuptools-*.egg
 setuptools-*.zip
 build/
+munger/cache.sqlite
