@@ -1,11 +1,8 @@
-import ez_setup
-ez_setup.use_setuptools()
-
 from setuptools import setup, find_packages
 
 setup(
     name="dc-campaign-finance-data",
-    version="0.3.5",
+    version="0.4.0",
     packages=find_packages(),
     entry_points={
         'console_scripts': [
@@ -16,6 +13,8 @@ setup(
         'requests',
         'click',
         'beautifulsoup4',
+        'requests-cache',
+        'retrying',
     ],
 
     # metadata for upload to PyPI

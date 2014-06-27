@@ -5,11 +5,23 @@ import json
 import datetime
 
 from . import scraper
+from . import utils
 
 
 @click.group()
-def cli(**kwargs):
-    pass
+@click.option('--log/--no-log',
+              default=False,
+              help='Print log of all HTTP requests',
+              show_default=True)
+@click.option('--cache/--no-cache',
+              default=True,
+              help='Cache all requests to file.',
+              show_default=True)
+def cli(log, cache):
+    if log:
+        utils.enable_logging()
+    if cache:
+        utils.enable_cache()
 
 
 @cli.command(short_help='List of records (CSV)')
@@ -94,6 +106,44 @@ def races(**kwargs):
         json.dumps(list(scraper.races(**kwargs))),
         nl=False
     )
+
+
+@cli.command(short_help='List of records by race and year (JSON)')
+@click.option('--office',
+              default='Council At-Large',
+              show_default=True,
+              type=click.Choice(scraper.offices()))
+@click.option('--year',
+              default=datetime.datetime.now().year,
+              show_default=True,
+              type=click.IntRange(*year_range))
+@click.option('--report-type',
+              default='con',
+              help='exp -> expenses, con -> contributions',
+              type=click.Choice(['exp', 'con']),
+              show_default=True)
+def records_json(**kwargs):
+    '''
+    A list all transactions for all campaigns running for OFFICE in YEAR.
+    Either the expenses of the campaign or the contributions of the
+    campaign, based on REPORT-TYPE.
+    '''
+    click.echo(
+        json.dumps(list(scraper.records_for_race(**kwargs))),
+        nl=False
+    )
+
+
+@cli.command(short_help='Checks to see if any committees are duplicated in multiple race')
+def committees_dup():
+    '''
+    Logs and committee names that show up running for more than one office.
+    This means these are problematic, because we have to infer what records
+    go with each race, and can not tell exactly what race they are for
+    '''
+    for log in scraper.commitees_in_multiple_years():
+        click.echo(log)
+
 
 if __name__ == '__main__':
     cli()
