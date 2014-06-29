@@ -12,8 +12,8 @@ We will try to seperate apps as much as possible, designing small tools that do 
 
 1. **[scraper](scraper)**: Provide Python and CLI API to raw data from
    from [DC Office of Campaign Finance](http://ocf.dc.gov/index.shtm)
-2. **[munger](munger)**: scripts for munging data into shape.
-3. **[data](data)**: where we put the data (like [contributions](https://github.com/codefordc/finance/blob/gh-pages/data/all_contributions_1999_current.csv) and [expenditures](/data/all_expenditures_1999_current.csv) and stuff for graphs)
+2. **[munger](munger)**: Scripts for munging data into shape.
+3. **[data](data)**: Where we put scraped data (like [contributions](https://github.com/codefordc/finance/blob/gh-pages/data/all_contributions_1999_current.csv) and [expenditures](/data/all_expenditures_1999_current.csv) as well as processed data for graphing)
 4. **[display](scraper)**: The pieces that generate graphs and content for the front end.
 
 ## Branching
