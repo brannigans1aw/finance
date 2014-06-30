@@ -6,7 +6,7 @@ We want to apply the techniques and goals of the Sunlight Foundation and Follow 
 
 ## Design
 
-We will try to seperate apps as much as possible, designing small tools that do one thing very well. This means that each part should should articulate what specific action it does and no more. Then we can chain these tools together to get the results we want. As much as possible, tools should be created as stand alone repos.
+We will try to separate apps, so  that each part does one specific action and no more. The apps should then chain together to get the results we want. 
 
 ## Parts
 
