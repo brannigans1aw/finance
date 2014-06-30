@@ -16,12 +16,16 @@ def listify(f):
     return listify_helper
 
 
-# Wait 2^x * 1000 milliseconds between each retry, up to 10 seconds, then 10 seconds afterwards
-retry_exp_backoff = retrying.retry(
-    wait_exponential_multiplier=1000,
-    wait_exponential_max=10000,
-    retry_on_exception=lambda exception: isinstance(exception, requests.exceptions.ConnectionError)
-)
+def retry_exp_backoff(f):
+    @functools.wraps(f)
+    def retry_exp_backoff_helper(*args, **kwargs):
+        # Wait 2^x * 1000 milliseconds between each retry, up to 10 seconds, then 10 seconds afterwards
+        return retrying.Retrying(
+            wait_exponential_multiplier=1000,
+            wait_exponential_max=10000,
+            retry_on_exception=lambda exception: isinstance(exception, requests.exceptions.ConnectionError)
+        ).call(f, *args, **kwargs)
+    return retry_exp_backoff_helper
 
 
 def enable_cache():
@@ -45,12 +49,13 @@ def log_function(f):
         indent_level += 1
         try:
             return_output = f(*args, **kwds)
-        except Exception:
+        except Exception as e:
+            _log_with_level('->Raised {}'.format(repr(e)))
             raise
         else:
+            _log_with_level('->{}'.format(repr(return_output)[0:50]))
             return return_output
         finally:
             indent_level -= 1
-            _log_with_level('{}->'.format(f.__name__))
 
     return wrapper
