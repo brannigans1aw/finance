@@ -2,11 +2,11 @@
 
 ## Goals
 
-We want to apply the techniques and goals of the Sunlight Foundation and Follow the Money to DC politics. We will track contributions and expenditures for all candidates running for DC public office.  We plan to start small and grow organically as through projects that interest collaborators.
+This project embraces the goals and techniques of the Sunlight Foundation and Follow the Money, and it aims to applly them to DC politics. It will track contributions and expenditures for all candidates running for DC public office.  We plan to start small and grow organically as through projects that interest collaborators.
 
 ## Design
 
-We will try to separate apps, so  that each part does one specific action and no more. The apps should then chain together to get the results we want. 
+Our approach will try to separate apps, so that each part does one specific action and no more. The apps should then chain together to get the results we want. 
 
 ## Parts
 
@@ -18,4 +18,4 @@ We will try to separate apps, so  that each part does one specific action and no
 
 ## Branching
 
-Our production branch is gh-pages. 
+Our production branch is gh-pages. For now, our dev branch is master. 
