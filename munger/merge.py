@@ -1,6 +1,9 @@
-# This file downloads data from the DC Office of Campaign Finance
-# and generates various data tables suitable for graphing.
-# It uses @sshanabrook's awesome dc_campaign_finance_data package.
+'''
+MERGE CONTRIBUTIONS DATA WITH ELECTION-YEAR-OFFICE-COMMITTEE DATA. Now that we have information
+on all the committees running for all the offices for each year, we can generate json files
+containing annual contributions and expenditures by year by office by candidate
+by mergine the contributions and expenditures data with year/office/committee data.
+'''
 
 import os
 import time
@@ -13,19 +16,19 @@ import numpy as np
 import pickle
 import collections
 import json
+import gzip
 
-'''setup up directories'''
+
+def gzipper(in_filename, out_filename):
+    the_data = open(in_filename, "rb").read()
+    gzf = gzip.open(out_filename, "wb")
+    gzf.write(the_data)
+    gzf.close()
+    os.unlink(in_filename)
+
 
 input_dir = '../data/input'
 output_dir = '../data/output'
-
-
-'''
-MERGE CONTRIBUTIONS DATA WITH ELECTION-YEAR-OFFICE-COMMITTEE DATA. Now that we have information
-on all the committees running for all the offices for each year, we can generate json files
-containing annual contributions and expenditures by year by office by candidate
-by mergine the contributions and expenditures data with year/office/committee data.
-'''
 
 filename = os.path.join(input_dir, 'election_years_offices_and_committees.csv')
 eyoc = pd.read_csv(filename)
@@ -49,7 +52,10 @@ for rownum in range(0, len(yo.index)):
     data_out = merged[(merged['Election Year'] ==  year)]
     data_out = data_out[(data_out['Office'] ==  office)]
     data_out = data_out[['Candidate Name', 'Contributor', 'Address', 'city', 'state', 'Zip', 'Contribution Type', 'Amount', 'Date of Receipt']]
-    filename = os.path.join(output_dir, str(year) +' ' + str(office) + '.json')
-    data_out.to_json(filename, orient = 'records')
-
-
+    json_filename = os.path.join(output_dir, str(year) +' ' + str(office) + '.json')
+    data_out.to_json(json_filename, orient = 'records')
+    gzip_filename = os.path.join(output_dir, str(year) +' ' + str(office) + '.gzip')
+    gzipper(json_filename, gzip_filename)
+    # summary_out = pd.tools.pivot.pivot_table(data_out, values='Amount', index=['Contribution Type'], cols=['Candidate Name'], aggfunc=np.sum)
+    # filename = os.path.join(output_dir, 'summary ' + str(year) +' ' + str(office) + '.json')
+    # summary_out.to_json(filename)
