@@ -19,3 +19,7 @@ Our approach will try to separate apps, so that each part does one specific acti
 ## Branching
 
 Our production branch is gh-pages. For now, our dev branch is master. 
+
+
+## Issues
+For current issues we are working on check out the [waffle.io board](https://waffle.io/codefordc/finance), which uses our [Github issues](https://github.com/codefordc/finance/issues) underneath.
