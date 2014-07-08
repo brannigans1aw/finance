@@ -7,3 +7,4 @@ munger/cache.sqlite
 .DS_Store
 .gitignore
 cache.sqlite
+npm-debug.log
