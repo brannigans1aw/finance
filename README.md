@@ -2,7 +2,7 @@
 
 ## Goals
 
-This project embraces the goals and techniques of the Sunlight Foundation and Follow the Money, and it aims to applly them to DC politics. It will track contributions and expenditures for all candidates running for DC public office.  We plan to start small and grow organically as through projects that interest collaborators.
+This project aims to apply the goals and techniques of the Sunlight Foundation and Follow the Money to DC politics. It will track contributions and expenditures for all candidates running for DC public office.  We plan to start small and grow organically as through projects that interest collaborators.
 
 ## Design
 
