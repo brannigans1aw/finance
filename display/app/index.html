@@ -12,7 +12,7 @@
     <title>My AngularJS App</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+	
     <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
     <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
@@ -27,7 +27,7 @@
 </head>
 
 <body>
-    <div class="github-fork-ribbon-wrapper right">
+	<div class="github-fork-ribbon-wrapper right">
         <div class="github-fork-ribbon">
             <a href="https://github.com/codefordc/finance/">Fork me on GitHub</a>
         </div>
@@ -36,28 +36,68 @@
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div class="container">
-        <div ng-controller="SelectController as c">
-            <div class="row">
-                <strong>Years:</strong>
-                <div class="btn-group">
-                    <button ng-repeat="year in c.campaigns.years" type="button" class="btn btn-default" ng-click="c.setYear(year)" ng-class="{active: c.yearIsActive(year)}">{{year}}</button>
-                </div>
-            </div>
-            <div ng-repeat="(officeType, officeList) in c.selectableOffice" class="row">
-                <strong>{{officeType}}:</strong>
-                <div class="btn-group">
-                    <button ng-repeat="office in officeList" type="button" class="btn btn-default" ng-click="c.setOffice(office)" ng-class="{active: c.officeIsActive(office), disabled: !c.campaigns.officeContended(office)}">{{office}}</button>
-                </div>
-            </div>
-
-
-
-        </div>
-        <div ng-controller="GraphsController as c">
-            <nvd3-multi-bar-horizontal-chart data="c.graph" showXAxis="true" showYAxis="true" height=700 width=900 margin="{left:150,top:20,bottom:20,right:10}" yAxisLabel="Contributions ($)" showLegend="true" tooltips="true"></nvd3-multi-bar-chart>
-
-        </div>
+	<!-- Top Nav Filters -->
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav" ng-controller="SelectController as c">
+						<li class="dropdown">
+							<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+								Year
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" role="menu">
+								<li ng-repeat="year in c.campaigns.years" role="presentation" ng-click="c.setYear(year)" ng-class="{active: c.yearIsActive(year)}">
+									<a role="menuitem" tabindex="-1" href="#">{{year}}</a>
+								</li>
+							</ul>
+						</li>
+						<li ng-repeat="(officeType, officeList) in c.selectableOffice" class="dropdown">
+							<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+								{{officeType}}
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" role="menu">
+								<li ng-repeat="office in officeList" role="presentation" ng-click="c.setOffice(office)" ng-class="{active: c.officeIsActive(office), disabled: !c.campaigns.officeContended(office)}">
+									<a role="menuitem" tabindex="-1" href="#">{{office}}</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+    
+	<div class="container-fluid">
+		<div class="row">
+			<!-- Left Sidebar -->
+			<div class="col-sm-3 col-md-2 sidebar">
+			  <ul class="nav nav-sidebar">
+				<li class="active"><a href="#">Overview</a></li>
+				<li><a href="#">Reports</a></li>
+				<li><a href="#">Analytics</a></li>
+				<li><a href="#">Export</a></li>
+			  </ul>
+			  <ul class="nav nav-sidebar">
+				<li><a href="">Nav item</a></li>
+				<li><a href="">Nav item again</a></li>
+				<li><a href="">One more nav</a></li>
+				<li><a href="">Another nav item</a></li>
+				<li><a href="">More navigation</a></li>
+			  </ul>
+			  <ul class="nav nav-sidebar">
+				<li><a href="">Nav item again</a></li>
+				<li><a href="">One more nav</a></li>
+				<li><a href="">Another nav item</a></li>
+			  </ul>
+			</div>
+			<!-- Main Content -->
+			<div ng-controller="GraphsController as c" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<nvd3-multi-bar-horizontal-chart data="c.graph" showXAxis="true" showYAxis="true" height=700 width=900 margin="{left:150,top:20,bottom:20,right:10}" yAxisLabel="Contributions ($)" showLegend="true" tooltips="true"></nvd3-multi-bar-chart>
+			</div>
+		</div>
 
     </div>
 
